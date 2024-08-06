@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="/style.css">  
+    <script src="https://kit.fontawesome.com/0882f9805b.js" crossorigin="anonymous"></script>  
     <title>Document</title>
 </head>
 <body>
     <!-- NAV BAR -->
-     <nav>
+     <nav id="navbar">
         <ul>
-            
             <li><a href="#Home">Home</a></li>
             <li><a href="#About">About Us</a></li>
             <li><a href="#Downloads">Downloads</a></li>
@@ -29,33 +29,34 @@
     
         <section class="container deck">
             <a href="./articles.ejs"><div class="card articles">
-            <h2>Articles</h2>
-            <p>Check out our featured articles</p>
+            <h2 class="cardName">Articles</h2>
+            <i class="fa-regular fa-newspaper fa-2xl" style="color: #ffffff;"></i>
             </div></a>
             <div class="card tips">
-            <h2>Tips and Tricks</h2>
+            <h2 class="cardName">Tips and Tricks</h2>
             <p>Check out our tips and tricks</p>
             </div>
             <div class="card downloads">
-            <h2>Downloads</h2>
+            <h2 class="cardName">Downloads</h2>
             <p>Download our mood tracker</p>
             </div>
             <div class="card meditation">
-            <h2>Guided Meditation</h2>
+            <h2 class="cardName">Guided Meditation</h2>
             <p>Check out our guided meditation and relaxation exercises</p>
             </div>
         </section>
           
-  <div class="card talk">
+  <div class="talk">
         <h2>Random Talk of the Day</h2>
         <p>Nothing better than a little talk to conect us</p>
         <p id="randomTalk"><%= subjecttalk %></p>
+        <button id="newTalkButton">Get Another Talk</button>
     </div> 
 
   
  <footer>
         <p>© 2024 by Marcella and Ronny - Hackaton Developers Institute</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

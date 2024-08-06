@@ -18,7 +18,7 @@ const db = knex({
         host: 'localhost',
         port: '5432',
         user: 'postgres',
-        password: 'password',
+        password: 'new_password',
         database: 'HackatonMindPar'
     }
 });
@@ -29,18 +29,43 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//render EJS template
 app.get('/', async (req, res) => {
     try {
-        const articles = await db.select('*').from('articles');
-        const subjecttalk = "Today's mindful talk topic goes here!";
-        res.render('index', { articles, subjecttalk });
+              const randomtalk = await db('randomtalk')
+            .select('subjecttalk', 'categories')
+            .orderByRaw('RANDOM()')
+            .first(); // Fetch a single random row
+
+        
+        const subjecttalk = randomtalk ? randomtalk.subjecttalk : "Today's mindful talk topic goes here!";
+        const categories = randomtalk ? randomtalk.categories : [];
+
+     
+        res.render('index', { subjecttalk, categories });
     } catch (err) {
-        res.status(500).json({ error: 'Failed to load homepage' });
+        console.error('Error rendering EJS:', err);
+        res.status(400).json({ error: 'Failed to load homepage' });
+    }
+});
+app.get('/randomtalk', async (req, res) => {
+    try {
+        const randomtalk = await db('randomtalk')
+            .select('subjecttalk')
+            .orderByRaw('RANDOM()')
+            .first();
+
+        const subjecttalk = randomtalk ? randomtalk.subjecttalk : "No talk available";
+
+        res.json({ subjecttalk });
+    } catch (err) {
+        console.error('Error fetching random talk:', err);
+        res.status(500).json({ error: 'Failed to fetch random talk' });
     }
 });
 
-//get articles
+
+
+// Get articles
 app.get('/articles', async (req, res) => {
     try {
         const articles = await db.select('*').from('articles');
@@ -49,7 +74,6 @@ app.get('/articles', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch articles' });
     }
 });
-
 
 //server
 app.listen(port, () => {

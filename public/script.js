@@ -18,3 +18,20 @@
 
     loadArticles();
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const newTalkButton = document.getElementById('newTalkButton');
+        const randomTalkElement = document.getElementById('randomTalk');
+    
+        newTalkButton.addEventListener('click', async () => {
+            try {
+                // Fetch a new random talk from the server
+                const response = await fetch('/randomtalk');
+                const data = await response.json();
+                
+                // Update the random talk section with the new data
+                randomTalkElement.textContent = data.subjecttalk;
+            } catch (error) {
+                console.error('Error fetching new talk:', error);
+            }
+        });
+    });
