@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
               const randomtalk = await db('randomtalk')
             .select('subjecttalk', 'categories')
             .orderByRaw('RANDOM()')
-            .first(); // Fetch a single random row
+            .first(); 
 
         
         const subjecttalk = randomtalk ? randomtalk.subjecttalk : "Today's mindful talk topic goes here!";
@@ -63,7 +63,14 @@ app.get('/randomtalk', async (req, res) => {
     }
 });
 
-
+// Get downloads
+app.get('/downloads', async (req, res) => {
+    try {
+        res.render('downloads');
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch downloads' });
+    }
+});
 
 // Get articles
 app.get('/articles', async (req, res) => {
@@ -74,6 +81,8 @@ app.get('/articles', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch articles' });
     }
 });
+
+
 
 //server
 app.listen(port, () => {
