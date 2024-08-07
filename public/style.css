@@ -83,7 +83,7 @@ li{
     text-align: center;     
 }
 
-#newTalkButton {
+#newTalkButton, #contactButton {
     margin-top: 20px;       
     padding: 10px 20px;   
     border: none;
@@ -92,6 +92,11 @@ li{
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+
+#newTalkButton:hover, #contactButton:hover {
+    background-color: darkred;
+    transform: scale(1.05); 
 }
 
 footer {
@@ -124,4 +129,20 @@ footer {
     margin-bottom: 20px;
     color: lightcoral;
     text-align: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    margin-top: 20px;
+    padding: 20px;
+}
+.contact_form {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid lightcoral;
+    border-radius: 5px;
 }

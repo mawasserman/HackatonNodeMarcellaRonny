@@ -25,11 +25,29 @@
     <main class="contact_container mainNAV">
         <h1 class="contact_header h1NAV">Contact Us</h1>
         <div id="contactUs">
-        <p style="text-align: center;">Welcome to our Mindful Parenting website!</p>
-        <p>We are Marcella and Ronny, two parents with a shared passion for mindful parenting and raising happy, healthy children. Between us, we have four wonderful kids who have inspired us to create this platform.</p>
-        <p><strong>Marcella</strong> is a dedicated mother of two, with a deep interest in mindfulness and emotional well-being. She brings a wealth of experience and practical advice from her own parenting journey, always striving to find balance and harmony in family life.</p>
+        <p style="text-align: center;">We'd love to hear from you!</p>
+
+        <h2 style="color: grey;">Feedback Form</h2>
+        <p>We appreciate your feedback! Please fill out the form below to send us your comments and suggestions.</p>
         
-    </div>
+        <div class="form-container">
+        <form action="/submit-feedback" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="contact_form" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="contact_form" required><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" class="contact_form" required></textarea><br>
+            <button type="submit" id="contactButton">Submit</button>
+        </form>
+        </div>
+
+        <h2 style="color: grey;">Hey! I just met you and this is crazy, but here's my number... So call me, maybe </h2>
+        <p>You can call us at (+972) 012-345-6789 during our office hours:<br>
+           <br>Sunday to Thursday: 9:00 AM - 5:00 PM
+           <br>
+           Friday and Saturday: Closed
+</p>
 </main>
     <footer>
         <p>© 2024 by Marcella and Ronny - Hackaton Developers Institute</p>

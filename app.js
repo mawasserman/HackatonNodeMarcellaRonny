@@ -75,8 +75,8 @@ app.get('/downloads', async (req, res) => {
 // Get articles
 app.get('/articles', async (req, res) => {
     try {
-        const articles = await db.select('*').from('articles');
-        res.json(articles);
+        
+        res.render('articles');
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch articles' });
     }
