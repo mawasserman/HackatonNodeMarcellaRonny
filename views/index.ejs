@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">  
     <script src="https://kit.fontawesome.com/0882f9805b.js" crossorigin="anonymous"></script>  
-    <title>Document</title>
+    <title>Mindful Parenting</title>
 </head>
 <body>
     <!-- NAV BAR -->
      <nav id="navbar">
         <ul>
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#About">About Us</a></li>
-            <li><a href="#Downloads">Downloads</a></li>
-            <li><a href="#Contact">Contact Us</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/articles">Downloads</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
         </ul>
         <form action="/search" method="GET">
             <input type="text" name="search" id="search" placeholder="Search">
@@ -34,21 +34,21 @@
             </div></a>
             <div class="card tips">
             <h2 class="cardName">Tips and Tricks</h2>
-            <p>Check out our tips and tricks</p>
+            <i class="fa-solid fa-wand-magic-sparkles fa-2xl" style="color: #ffffff;"></i>
             </div>
-            <div class="card downloads">
-            <h2 class="cardName">Downloads</h2>
-            <p>Download our mood tracker</p>
+            <div class="card books">
+            <h2 class="cardName">Books</h2>
+            <i class="fa-solid fa-book-open fa-2xl" style="color: #ffffff;"></i>
             </div>
             <div class="card meditation">
             <h2 class="cardName">Guided Meditation</h2>
-            <p>Check out our guided meditation and relaxation exercises</p>
+            <i class="fa-solid fa-leaf fa-2xl" style="color: #ffffff;"></i>
             </div>
         </section>
           
   <div class="talk">
-        <h2>Random Talk of the Day</h2>
-        <p>Nothing better than a little talk to conect us</p>
+        <h2 class="rtExtra">Random Talk of the Day</h2>
+        <p class="rtExtra">Ask your child the question below, and be sure to answer it yourself.<br>They want to know about you too.</p>
         <p id="randomTalk"><%= subjecttalk %></p>
         <button id="newTalkButton">Get Another Talk</button>
     </div> 
